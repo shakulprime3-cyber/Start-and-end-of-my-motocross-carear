@@ -1,1 +1,102 @@
+import React from "react";
+import { motion } from "framer-motion";
+
+export default function ShakulPortfolio() {
+  const timeline = [
+    { year: 2021, title: "Started Racing", desc: "First local races in Kampala and nearby tracks, marking the beginning of my motocross journey." },
+    { year: 2022, title: "Regional Recognition", desc: "Top finishes in Ugandan regional motocross events; began building my reputation as one of the rising riders." },
+    { year: 2023, title: "Competitive Peak", desc: "Strong season with podium finishes and tough competition on Ugandan dirt tracks." },
+    { year: 2024, title: "Career Closure", desc: "After a challenging season and reflection, I officially ended my motocross career in Uganda." }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-950 text-gray-100">
+      <header className="max-w-5xl mx-auto p-6 flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <div className="w-16 h-16 rounded-full bg-green-600 flex items-center justify-center text-xl font-bold text-black shadow-lg">SP</div>
+          <div>
+            <h1 className="text-3xl font-extrabold text-white">Ssebagala Shakul <span className="text-sm text-gray-400">(shakulprime)</span></h1>
+            <p className="text-sm text-gray-400">Motocross rider — story of races, risks, and the chapter that closed in Uganda</p>
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-6xl mx-auto p-6 space-y-16">
+        <section id="hero" className="grid md:grid-cols-2 gap-8 items-center">
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} className="space-y-5">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-green-500">My Motocross Journey</h2>
+            <p className="text-gray-300 text-lg">I’m <strong>Ssebagala Shakul</strong>, also known as <em>shakulprime</em>. This is the story of how I began racing, found my rhythm on the dirt, and eventually decided to hang up my helmet in Uganda.</p>
+            <div className="flex gap-4">
+              <a href="#timeline" className="px-6 py-3 bg-green-600 hover:bg-green-700 text-black rounded-lg text-sm font-semibold shadow-md">See My Journey</a>
+              <a href="#contact" className="px-6 py-3 border border-gray-500 hover:border-green-500 rounded-lg text-sm font-semibold">Contact Me</a>
+            </div>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="rounded-2xl overflow-hidden shadow-2xl border border-gray-800">
+            <img alt="Shakul riding number 181 Kawasaki on Ugandan dirt track" src="https://cdn.openai.com/motocross/shakulprime_181_hero.png" className="w-full h-80 object-cover" />
+          </motion.div>
+        </section>
+
+        <section id="about" className="bg-gray-800 p-8 rounded-2xl shadow-lg">
+          <h3 className="text-2xl font-bold text-green-400">About Me</h3>
+          <p className="mt-4 text-gray-300 leading-relaxed">I grew up surrounded by engines and adrenaline. My love for motocross started in Kampala, where dirt tracks became my playground. Every race taught me courage, precision, and how to face both pain and victory. This page is a reflection of that road — the speed, the challenges, and the finish line that marked my final lap.</p>
+
+          <div className="mt-6 grid md:grid-cols-3 gap-6">
+            <div className="bg-black/40 p-4 rounded-lg border border-gray-700">
+              <h4 className="font-semibold text-green-400">Home Base</h4>
+              <p className="text-sm text-gray-300">Kampala, Uganda</p>
+            </div>
+            <div className="bg-black/40 p-4 rounded-lg border border-gray-700">
+              <h4 className="font-semibold text-green-400">Bike</h4>
+              <p className="text-sm text-gray-300">Kawasaki #181 — Green Thunder</p>
+            </div>
+            <div className="bg-black/40 p-4 rounded-lg border border-gray-700">
+              <h4 className="font-semibold text-green-400">Racing Alias</h4>
+              <p className="text-sm text-gray-300">Ssebagala Shakul / shakulprime</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="timeline" className="bg-gray-900 p-8 rounded-2xl shadow-xl">
+          <h3 className="text-2xl font-bold text-green-400 mb-6">Career Timeline</h3>
+          <div className="space-y-6">
+            {timeline.map((item) => (
+              <motion.article key={item.year} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="flex gap-4 items-start">
+                <div className="flex-shrink-0 w-24 text-right pr-4 text-gray-500 font-semibold">{item.year}</div>
+                <div className="flex-1 bg-black/40 border border-gray-700 p-5 rounded-lg">
+                  <h4 className="text-lg font-semibold text-white">{item.title}</h4>
+                  <p className="text-sm text-gray-400 mt-1">{item.desc}</p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+
+        <section id="gallery" className="bg-gray-800 p-8 rounded-2xl shadow-lg">
+          <h3 className="text-2xl font-bold text-green-400">Gallery</h3>
+          <p className="text-sm text-gray-400 mt-2">Shots inspired by Eli Tomac, recreated with number 181 on Ugandan dirt — pure speed, mud, and memories.</p>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <img src="https://cdn.openai.com/motocross/shakulprime_181_hero.png" alt="Motocross rider 181 Uganda" className="rounded-xl shadow-md w-full h-72 object-cover hover:scale-105 transition-transform duration-500" />
+            <img src="https://cdn.openai.com/motocross/shakulprime_181_gallery.png" alt="Rider 181 Green Kawasaki" className="rounded-xl shadow-md w-full h-72 object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
+        </section>
+
+        <section id="contact" className="bg-gray-900 p-8 rounded-2xl shadow-xl">
+          <h3 className="text-2xl font-bold text-green-400">Contact</h3>
+          <p className="text-sm text-gray-400 mt-2">Reach out — whether for collaboration, interviews, or motocross storytelling.</p>
+
+          <form className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input placeholder="Your Name" className="p-3 bg-black/40 border border-gray-700 rounded text-gray-200 placeholder-gray-500" />
+            <input placeholder="Your Email" className="p-3 bg-black/40 border border-gray-700 rounded text-gray-200 placeholder-gray-500" />
+            <textarea placeholder="Message" className="p-3 bg-black/40 border border-gray-700 rounded text-gray-200 placeholder-gray-500 md:col-span-2" rows={4}></textarea>
+            <button type="button" className="md:col-span-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-black font-semibold rounded-lg shadow-md transition">Send Message (Demo)</button>
+          </form>
+        </section>
+
+        <footer className="text-center text-gray-500 text-sm mt-16 pb-8">© {new Date().getFullYear()} Ssebagala Shakul — Built with ❤️ and speed.</footer>
+      </main>
+    </div>
+  );
+}
 
